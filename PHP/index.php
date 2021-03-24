@@ -1,7 +1,7 @@
 <?php
     include 'myClass.php';
     if(isset($_POST['hitung'])){
-        $linkaran = new lingkaran($_POST['r'])
+        $lingkaran = new lingkaran($_POST['r']);
     }
 ?>
 
@@ -26,13 +26,35 @@
   <form name="lingkaran" action="" method="POST">
     <div class="container">
         <div class="card">
+        <div class="card-header text-danger" align="center">
          <label for="inputjarijari">Masukkan Nilai Jari-jari</label>
          <input type="number" name="r" required>
          <input type="submit" name="hitung">
+        </div>
          
         </div>  
     </div>
   </form>
+
+    <form name="lingkaran" action="" method="POST">
+        <div class="container" align="center">
+            <div class="card" align="center">
+            <div class="card-header text-danger" align="center">
+            <h4>Hasil Perhitungan</h4></div>
+            <div class="card-body text-dark" align="left">
+                <?php
+                    if (isset($_POST['hitung'])) {
+                        echo "Nilai r (Jari-jari) Lingkaran adalah = ". $_POST['r'];
+                        echo "<br/>";
+                        echo "Keliling Lingkaran adalah = ". $lingkaran->getKeliling();
+                        echo "<br/>";
+                        echo "Luas Lingkaran adalah = ". $lingkaran->getluaslingkaran();
+                    }
+                ?>
+                </div>
+            </div>
+        </div>
+    </form> 
 <!--     
     <form name="hasil" action="" method="POST">
     <div class="container">
@@ -42,14 +64,14 @@
     </form> -->
     <?php
 
-    
+
     //    if(isset($_POST['luasling'])){
     //        $formlingkaran = new lingkaran($_POST['r']);
     //     echo "Luas Lingkaran dengan jari-jari " .$_POST['r']." adalah : " .$formlingkaran->getluaslingkaran();
     
     //     $formlingkaran = new lingkaran($_POST['r']);
     //     echo "Keliling Lingkaran dengan jari-jari " .$_POST['r']." adalah : " .$formlingkaran->getKeliling();
-    }
+    
     ?>
        
     <br/>
